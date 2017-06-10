@@ -32,7 +32,7 @@ public class PostsPresenter extends Presenter {
         fetchPosts();
     }
 
-    void fetchPosts() {
+    public void fetchPosts() {
         repo.getAllPosts(new Callback<Post>() {
             @Override
             public void onSuccess(Post result) {
