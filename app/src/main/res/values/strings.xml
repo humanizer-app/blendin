@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">Blendin</string>
-    <string name="facebook_app_id">246576845747471</string>
-    <string name="fb_login_protocol_scheme">fb246576845747471</string>
-
+    <string name="action_settings">Settings</string>
 </resources>
