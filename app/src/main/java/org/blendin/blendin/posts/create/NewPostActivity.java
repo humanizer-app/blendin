@@ -1,4 +1,4 @@
-package org.blendin.blendin.feed.create;
+package org.blendin.blendin.posts.create;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

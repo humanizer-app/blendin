@@ -1,4 +1,4 @@
-package org.blendin.blendin.feed.dummy;
+package org.blendin.blendin.posts.dummy;
 
 import org.blendin.blendin.models.Post;
 

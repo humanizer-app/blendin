@@ -9,5 +9,5 @@
     android:layout_marginLeft="4dp"
     android:layout_marginRight="4dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context="org.blendin.blendin.feed.PostsFragment"
+    tools:context="org.blendin.blendin.posts.PostsFragment"
     tools:listitem="@layout/fragment_post" />

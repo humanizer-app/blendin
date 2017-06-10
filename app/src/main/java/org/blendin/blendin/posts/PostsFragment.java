@@ -1,4 +1,4 @@
-package org.blendin.blendin.feed;
+package org.blendin.blendin.posts;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import android.widget.Toast;
 import org.blendin.blendin.R;
 import org.blendin.blendin.dagger.AppComponent;
 import org.blendin.blendin.dagger.DaggerAppComponent;
-import org.blendin.blendin.feed.dummy.DummyPosts;
+import org.blendin.blendin.posts.dummy.DummyPosts;
 import org.blendin.blendin.models.Post;
 
 public class PostsFragment extends Fragment implements PostsView {

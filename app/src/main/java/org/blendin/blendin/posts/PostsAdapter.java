@@ -1,4 +1,4 @@
-package org.blendin.blendin.feed;
+package org.blendin.blendin.posts;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.blendin.blendin.R;
-import org.blendin.blendin.feed.PostsFragment.OnListFragmentInteractionListener;
+import org.blendin.blendin.posts.PostsFragment.OnListFragmentInteractionListener;
 import org.blendin.blendin.models.Post;
 
 import java.util.List;

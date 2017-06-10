@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.blendin.blendin.feed.details.PostDetailsActivity">
+    tools:context="org.blendin.blendin.posts.details.PostDetailsActivity">
 
 </android.support.constraint.ConstraintLayout>

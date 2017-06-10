@@ -48,8 +48,8 @@
         <activity
             android:name=".categories.CategoriesActivity"
             android:label="Categories" />
-        <activity android:name=".feed.details.PostDetailsActivity" />
-        <activity android:name=".feed.create.NewPostActivity"></activity>
+        <activity android:name=".posts.details.PostDetailsActivity" />
+        <activity android:name=".posts.create.NewPostActivity"></activity>
     </application>
 
 </manifest>

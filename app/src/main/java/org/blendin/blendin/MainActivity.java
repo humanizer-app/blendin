@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import org.blendin.blendin.auth.LoginActivity;
 import org.blendin.blendin.dagger.DaggerAppComponent;
-import org.blendin.blendin.feed.PostsFragment;
+import org.blendin.blendin.posts.PostsFragment;
 import org.blendin.blendin.models.Post;
 
 import javax.inject.Inject;
