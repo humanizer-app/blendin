@@ -11,10 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.blendin.blendin.R;
-import org.blendin.blendin.feed.dummy.DummyContent;
-import org.blendin.blendin.feed.dummy.DummyContent.DummyItem;
-
-import java.util.List;
+import org.blendin.blendin.feed.dummy.DummyPosts;
+import org.blendin.blendin.models.Post;
 
 /**
  * A fragment representing a list of Items.
@@ -56,7 +54,7 @@ public class PostsFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new PostsAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new PostsAdapter(DummyPosts.ITEMS, mListener));
         }
         return view;
     }
@@ -91,6 +89,6 @@ public class PostsFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(Post item);
     }
 }

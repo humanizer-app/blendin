@@ -8,18 +8,18 @@ import android.widget.TextView;
 
 import org.blendin.blendin.R;
 import org.blendin.blendin.feed.PostsFragment.OnListFragmentInteractionListener;
-import org.blendin.blendin.feed.dummy.DummyContent.DummyItem;
+import org.blendin.blendin.models.Post;
 
 import java.util.List;
 
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<Post> posts;
     private final OnListFragmentInteractionListener mListener;
 
-    public PostsAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
-        mValues = items;
+    public PostsAdapter(List<Post> items, OnListFragmentInteractionListener listener) {
+        posts = items;
         mListener = listener;
     }
 
@@ -32,9 +32,9 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.post = posts.get(position);
+        holder.mIdView.setText(posts.get(position).id);
+        holder.mContentView.setText(posts.get(position).content);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +42,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    mListener.onListFragmentInteraction(holder.post);
                 }
             }
         });
@@ -50,14 +50,14 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return posts.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public Post post;
 
         public ViewHolder(View view) {
             super(view);
