@@ -14,6 +14,8 @@ public class Post {
     public String title;
     public String details;
     public long timestamp;
+//    public String category;
+//    public Location location;
 //    List<Comment> comments = Collections.singletonList(new Comment("First comment!"));
 
     public Post() {
