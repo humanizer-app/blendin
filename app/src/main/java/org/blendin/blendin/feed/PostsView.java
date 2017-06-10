@@ -1,7 +1,10 @@
 package org.blendin.blendin.feed;
 
-public interface PostsView {
+import org.blendin.blendin.models.Post;
 
-//    void showError(String msg);
+public interface PostsView {
+    void showPost(Post result);
+
+    void showError(String msg);
 
 }

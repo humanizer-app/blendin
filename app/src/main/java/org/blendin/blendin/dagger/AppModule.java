@@ -3,6 +3,8 @@ package org.blendin.blendin.dagger;
 import com.facebook.CallbackManager;
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.greenrobot.eventbus.EventBus;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -19,5 +21,10 @@ public class AppModule {
     @Singleton
     @Provides CallbackManager provideCallbackManager() {
         return CallbackManager.Factory.create();
+    }
+
+    @Singleton
+    @Provides EventBus provideEventBus() {
+        return EventBus.getDefault();
     }
 }

@@ -33,8 +33,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.post = posts.get(position);
-        holder.mIdView.setText(posts.get(position).id);
-        holder.mContentView.setText(posts.get(position).content);
+        holder.mIdView.setText(posts.get(position).userId);
+        holder.mContentView.setText(posts.get(position).details);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +51,10 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     @Override
     public int getItemCount() {
         return posts.size();
+    }
+
+    public void addPost(Post post) {
+        posts.add(post);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

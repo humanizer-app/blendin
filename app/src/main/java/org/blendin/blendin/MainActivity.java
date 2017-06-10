@@ -12,7 +12,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import org.blendin.blendin.auth.LoginActivity;
 import org.blendin.blendin.dagger.DaggerAppComponent;
 import org.blendin.blendin.feed.PostsFragment;
-import org.blendin.blendin.feed.PostsView;
 import org.blendin.blendin.models.Post;
 
 import javax.inject.Inject;
@@ -21,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements PostsView, PostsFragment.OnListFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements PostsFragment.OnListFragmentInteractionListener{
 
     @Inject FirebaseAuth auth;
 

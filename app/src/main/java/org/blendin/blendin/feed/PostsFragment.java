@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import org.blendin.blendin.R;
 import org.blendin.blendin.dagger.AppComponent;
@@ -23,6 +24,7 @@ public class PostsFragment extends Fragment implements PostsView {
     private static int COLUMN_NUMBER = 1;
 
     private OnListFragmentInteractionListener mListener;
+    private PostsAdapter adapter;
 
     public PostsFragment() {
     }
@@ -32,7 +34,7 @@ public class PostsFragment extends Fragment implements PostsView {
         super.onCreate(savedInstanceState);
         AppComponent appComponent = DaggerAppComponent.builder().build();
         appComponent.inject(this);
-        presenter = new PostsPresenter(this, appComponent.postsRepository());
+        presenter = new PostsPresenter(this, appComponent.postsRepo(), appComponent.userRepo(), appComponent.bus());
     }
 
     @Override
@@ -40,6 +42,18 @@ public class PostsFragment extends Fragment implements PostsView {
         super.onResume();
         presenter.createPost();
         presenter.fetchPosts();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        presenter.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        presenter.onStop();
     }
 
     @Override
@@ -55,7 +69,8 @@ public class PostsFragment extends Fragment implements PostsView {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, COLUMN_NUMBER));
             }
-            recyclerView.setAdapter(new PostsAdapter(DummyPosts.ITEMS, mListener));
+            adapter = new PostsAdapter(DummyPosts.ITEMS, mListener);
+            recyclerView.setAdapter(adapter);
         }
         return view;
     }
@@ -76,6 +91,17 @@ public class PostsFragment extends Fragment implements PostsView {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void showPost(Post post) {
+        adapter.addPost(post);
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showError(String msg) {
+        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
     public interface OnListFragmentInteractionListener {

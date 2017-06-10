@@ -3,7 +3,9 @@ package org.blendin.blendin.dagger;
 import org.blendin.blendin.MainActivity;
 import org.blendin.blendin.auth.LoginActivity;
 import org.blendin.blendin.feed.PostsFragment;
-import org.blendin.blendin.repository.PostsRepository;
+import org.blendin.blendin.repository.PostRepository;
+import org.blendin.blendin.repository.UserRepository;
+import org.greenrobot.eventbus.EventBus;
 
 import javax.inject.Singleton;
 
@@ -18,5 +20,9 @@ public interface AppComponent {
 
     void inject(PostsFragment postsFragment);
 
-    PostsRepository postsRepository();
+    PostRepository postsRepo();
+
+    UserRepository userRepo();
+
+    EventBus bus();
 }

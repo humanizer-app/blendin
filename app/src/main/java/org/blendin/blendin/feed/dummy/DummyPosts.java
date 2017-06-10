@@ -25,7 +25,7 @@ public class DummyPosts {
      */
     public static final Map<String, Post> ITEM_MAP = new HashMap<>();
 
-    private static final int COUNT = 25;
+    private static final int COUNT = 0;
 
     static {
         // Add some sample items.
@@ -36,39 +36,20 @@ public class DummyPosts {
 
     private static void addItem(Post item) {
         ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
+        ITEM_MAP.put(item.hashCode()+"", item);
     }
 
     private static Post createDummyItem(int position) {
-        return new Post(String.valueOf(position), "Item " + position, makeDetails(position));
+        return new Post(String.valueOf(position), "Item " + position, makeDetails(position), 1110101);
     }
 
     private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
         builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
+//        for (int i = 0; i < position; i++) {
             builder.append("\nMore details information here.");
-        }
+//        }
         return builder.toString();
     }
 
-    /**
-     * A dummy item representing a piece of content.
-     */
-    public static class DummyItem {
-        public final String id;
-        public final String content;
-        public final String details;
-
-        public DummyItem(String id, String content, String details) {
-            this.id = id;
-            this.content = content;
-            this.details = details;
-        }
-
-        @Override
-        public String toString() {
-            return content;
-        }
-    }
 }

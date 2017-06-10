@@ -2,25 +2,46 @@ package org.blendin.blendin.feed;
 
 import android.util.Log;
 
-import org.blendin.blendin.repository.PostsRepository;
+import org.blendin.blendin.events.PostEvent;
+import org.blendin.blendin.models.Post;
+import org.blendin.blendin.mvp.Presenter;
+import org.blendin.blendin.repository.PostRepository;
+import org.blendin.blendin.repository.UserRepository;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
-public class PostsPresenter {
+public class PostsPresenter extends Presenter {
     public static final String TAG = PostsPresenter.class.getSimpleName();
 
     private PostsView view;
-    private PostsRepository repository;
+    private PostRepository repo;
+    private UserRepository userRepo;
 
-    public PostsPresenter(PostsView view, PostsRepository repository) {
+    public PostsPresenter(PostsView view, PostRepository repo, UserRepository userRepo, EventBus bus) {
+        super(bus);
         this.view = view;
-        this.repository = repository;
+        this.repo = repo;
+        this.userRepo = userRepo;
     }
 
     void fetchPosts() {
-        repository.fetchPosts();
+        repo.fetchPosts();
     }
 
     public void createPost() {
         Log.d(TAG, "createPost: ");
-        repository.writeNewPost("yurii", "First post", "Let's make Firebase great again");
+        Post post = new Post(userRepo.getUser().userId,
+                "First post", "Let's make Firebase great again", System.currentTimeMillis());
+        repo.writeNewPost(post);
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onPostEvent(PostEvent event) {
+        if(event.isSuccess()) {
+            view.showPost(event.getResult());
+        } else {
+            view.showError(event.getError());
+        }
+    };
 }
