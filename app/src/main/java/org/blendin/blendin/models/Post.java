@@ -15,5 +15,4 @@ public class Post {
     public String toString() {
         return content;
     }
-
 }
