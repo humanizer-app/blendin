@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "986952797190",
+    "firebase_url": "https://blendin-85f22.firebaseio.com",
+    "project_id": "blendin-85f22",
+    "storage_bucket": "blendin-85f22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986952797190:android:86452daa5a7c6391",
+        "android_client_info": {
+          "package_name": "org.blendin.blendin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "986952797190-hugegj9uuc4k8706ojd300s6hrtj1erj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.blendin.blendin",
+            "certificate_hash": "376cae38a116d2ccf27793924ab771821c643968"
+          }
+        },
+        {
+          "client_id": "986952797190-9ui1e45q3thogq5bod7f4ibkk6l0pvsr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCVOzyUx8c86QKbGiz2wXgyYWspsvBEc4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "986952797190-9ui1e45q3thogq5bod7f4ibkk6l0pvsr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

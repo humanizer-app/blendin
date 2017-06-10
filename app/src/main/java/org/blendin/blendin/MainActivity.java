@@ -10,7 +10,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import org.blendin.blendin.auth.LoginActivity;
 import org.blendin.blendin.dagger.DaggerAppComponent;
-import org.blendin.blendin.feed.FeedView;
+import org.blendin.blendin.feed.PostsFragment;
+import org.blendin.blendin.feed.PostsView;
 
 import javax.inject.Inject;
 
@@ -18,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements FeedView {
+public class MainActivity extends AppCompatActivity implements PostsView {
 
     @Inject FirebaseAuth auth;
 
@@ -29,8 +30,13 @@ public class MainActivity extends AppCompatActivity implements FeedView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DaggerAppComponent.builder().build().inject(this);
-        ButterKnife.bind(this);
+        if(savedInstanceState == null) {
+            DaggerAppComponent.builder().build().inject(this);
+            ButterKnife.bind(this);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new PostsFragment())
+                    .commit();
+        }
     }
 
     @Override

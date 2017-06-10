@@ -26,10 +26,8 @@ import org.blendin.blendin.dagger.DaggerAppComponent;
 
 import javax.inject.Inject;
 
-public class LoginActivity extends AppCompatActivity implements LoginView {
+public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
-
-    private LoginPresenter presenter;
 
     @Inject CallbackManager callbackManager;
     @Inject FirebaseAuth auth;
@@ -62,7 +60,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             }
         });
 
-        presenter = new LoginPresenter(this);
     }
 
     @Override
@@ -75,12 +72,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         }
     }
 
-    @Override
-    public LoginPresenter getPresenter() {
-        return presenter;
-    }
-
-    @Override
     public void showError(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
