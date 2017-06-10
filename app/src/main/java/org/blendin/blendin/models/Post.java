@@ -2,8 +2,10 @@ package org.blendin.blendin.models;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.util.Collections;
 import java.util.HashMap;
 
+import java.util.List;
 import java.util.Map;
 
 @IgnoreExtraProperties
@@ -14,7 +16,7 @@ public class Post {
     public String title;
     public String details;
     public long timestamp;
-//    List<Comment> comments;
+    List<Comment> comments = Collections.singletonList(new Comment("First comment!"));
 
     public Post() {
     }
@@ -33,10 +35,10 @@ public class Post {
 //        this.details = details;
 //    }
 //
-//    @Override
-//    public String toString() {
-//        return content;
-//    }
+    @Override
+    public String toString() {
+        return details;
+    }
 
     public Map<String, Object> toMap() {
         Map<String, Object> result = new HashMap<>();
@@ -45,6 +47,7 @@ public class Post {
         result.put("title", title);
         result.put("details", details);
         result.put("timestamp", timestamp);
+        result.put("comments", comments);
 
         return result;
     }

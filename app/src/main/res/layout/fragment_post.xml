@@ -48,9 +48,9 @@
                     android:gravity="top">
 
                     <TextView
+                        android:id="@+id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/name"
                         android:text="Johanna Snow"
                         android:textColor="#3c3744"
                         android:textSize="14sp"/>
@@ -67,9 +67,9 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/question"
                     android:text="Where could I boulder? Where could I boulder? boulder boulder"
                     android:textColor="#3c3744"
                     android:textSize="18sp"/>

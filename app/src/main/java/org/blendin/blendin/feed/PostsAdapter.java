@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.blendin.blendin.R;
@@ -32,9 +33,10 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.post = posts.get(position);
-        holder.mIdView.setText(posts.get(position).userId);
-        holder.mContentView.setText(posts.get(position).details);
+        Post post = posts.get(position);
+        holder.titleView.setText(post.userId);
+        holder.detailsView.setText(post.details);
+        holder.answersView.setText("6 answers");
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,20 +61,18 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
+        public ImageView photoView;
+        public TextView titleView;
+        public TextView detailsView;
+        public TextView answersView;
         public Post post;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            titleView = (TextView) view.findViewById(R.id.title);
+            detailsView = (TextView) view.findViewById(R.id.details);
+            answersView = (TextView) view.findViewById(R.id.answer_count);
         }
     }
 }
