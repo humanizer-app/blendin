@@ -16,7 +16,7 @@ public class Post {
     public String title;
     public String details;
     public long timestamp;
-    List<Comment> comments = Collections.singletonList(new Comment("First comment!"));
+//    List<Comment> comments = Collections.singletonList(new Comment("First comment!"));
 
     public Post() {
     }
@@ -47,7 +47,7 @@ public class Post {
         result.put("title", title);
         result.put("details", details);
         result.put("timestamp", timestamp);
-        result.put("comments", comments);
+//        result.put("comments", comments);
 
         return result;
     }

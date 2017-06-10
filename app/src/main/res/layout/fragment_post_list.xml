@@ -6,8 +6,8 @@
     android:name="org.blendin.blendin.feed.PostsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
     app:layoutManager="LinearLayoutManager"
     tools:context="org.blendin.blendin.feed.PostsFragment"
     tools:listitem="@layout/fragment_post" />
