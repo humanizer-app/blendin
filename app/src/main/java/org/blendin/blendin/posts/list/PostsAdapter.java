@@ -56,6 +56,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     public void addPost(Post post) {
         posts.add(post);
+        notifyItemInserted(posts.size()-1);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

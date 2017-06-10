@@ -15,15 +15,11 @@ import org.blendin.blendin.models.Post;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.inject.Inject;
-
 public class PostRepository {
-
     private final DatabaseReference database;
     private final FirebaseAuth auth;
     private PostListener postListener;
 
-    @Inject
     public PostRepository(DatabaseReference database, FirebaseAuth auth) {
         this.database = database;
         this.auth = auth;

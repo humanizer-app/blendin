@@ -75,7 +75,6 @@ public class PostsFragment extends Fragment implements PostsView {
     @Override
     public void showPost(Post post) {
         adapter.addPost(post);
-        adapter.notifyDataSetChanged();
     }
 
     @Override

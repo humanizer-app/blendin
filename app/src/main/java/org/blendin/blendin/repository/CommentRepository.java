@@ -10,22 +10,16 @@ import com.google.firebase.database.DatabaseReference;
 import org.blendin.blendin.Callback;
 import org.blendin.blendin.models.Comment;
 import org.blendin.blendin.models.Post;
-import org.greenrobot.eventbus.EventBus;
-
-import javax.inject.Inject;
 
 public class CommentRepository {
 
     private final DatabaseReference database;
-    private final EventBus bus;
     private final FirebaseAuth auth;
 
     private CommentListener commentListener;
 
-    @Inject
-    public CommentRepository(DatabaseReference database, EventBus bus, FirebaseAuth auth) {
+    public CommentRepository(DatabaseReference database, FirebaseAuth auth) {
         this.database = database;
-        this.bus = bus;
         this.auth = auth;
     }
 

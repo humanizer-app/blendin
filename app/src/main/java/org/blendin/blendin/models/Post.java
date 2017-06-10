@@ -26,13 +26,18 @@ public class Post {
         this.timestamp = timestamp;
     }
 
-//    public Post(String userId, String id, String content, String details) {
-//        this.userId = userId;
-//        this.id = id;
-//        this.content = content;
-//        this.details = details;
-//    }
-//
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + (int) (timestamp ^ (timestamp >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
     @Override
     public String toString() {
         return details;
