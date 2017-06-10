@@ -3,22 +3,26 @@ package org.blendin.blendin;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import org.blendin.blendin.auth.LoginActivity;
 import org.blendin.blendin.dagger.DaggerAppComponent;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
     @Inject FirebaseAuth auth;
+
+    @BindView(R.id.feed_view)
+    RecyclerView feedView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
