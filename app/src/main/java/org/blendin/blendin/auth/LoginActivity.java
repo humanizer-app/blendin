@@ -26,10 +26,6 @@ import org.blendin.blendin.dagger.DaggerAppComponent;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 public class LoginActivity extends AppCompatActivity implements LoginView {
     private static final String TAG = "LoginActivity";
 
@@ -45,7 +41,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
         DaggerAppComponent.builder().build().inject(this);
 
-        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+        LoginButton loginButton = (LoginButton) findViewById(R.id.login_with_fb_button);
         loginButton.setReadPermissions("email", "public_profile");
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
