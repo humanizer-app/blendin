@@ -36,6 +36,7 @@ public class PostsFragment extends Fragment implements PostsView {
         AppComponent appComponent = DaggerAppComponent.builder().build();
         appComponent.inject(this);
         presenter = new PostsPresenter(this, appComponent.postsRepo(), appComponent.userRepo(), appComponent.bus());
+        presenter.fetchPosts();
     }
 
     @Override
