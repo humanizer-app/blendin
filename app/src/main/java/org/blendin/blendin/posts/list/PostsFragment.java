@@ -1,4 +1,4 @@
-package org.blendin.blendin.posts;
+package org.blendin.blendin.posts.list;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,16 +14,14 @@ import android.widget.Toast;
 import org.blendin.blendin.R;
 import org.blendin.blendin.dagger.AppComponent;
 import org.blendin.blendin.dagger.DaggerAppComponent;
-import org.blendin.blendin.posts.dummy.DummyPosts;
 import org.blendin.blendin.models.Post;
 
+import java.util.ArrayList;
+
 public class PostsFragment extends Fragment implements PostsView {
+    private static final int COLUMN_NUMBER = 1;
 
     private PostsPresenter presenter;
-
-    private static int COLUMN_NUMBER = 1;
-
-    private OnListFragmentInteractionListener mListener;
     private PostsAdapter adapter;
 
     public PostsFragment() {
@@ -41,7 +39,6 @@ public class PostsFragment extends Fragment implements PostsView {
     public void onResume() {
         super.onResume();
         presenter.createPost();
-        presenter.fetchPosts();
     }
 
     @Override
@@ -69,34 +66,10 @@ public class PostsFragment extends Fragment implements PostsView {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, COLUMN_NUMBER));
             }
-            adapter = new PostsAdapter(DummyPosts.ITEMS, mListener);
+            adapter = new PostsAdapter(new ArrayList<Post>());
             recyclerView.setAdapter(adapter);
         }
         return view;
-    }
-
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-//        if (context instanceof OnListFragmentInteractionListener) {
-//            mListener = (OnListFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnListFragmentInteractionListener");
-//        }
-        mListener = new OnListFragmentInteractionListener() {
-            @Override
-            public void onListFragmentInteraction(Post post) {
-
-            }
-        };
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
     }
 
     @Override
@@ -108,10 +81,5 @@ public class PostsFragment extends Fragment implements PostsView {
     @Override
     public void showError(String msg) {
         Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
-    }
-
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(Post item);
     }
 }

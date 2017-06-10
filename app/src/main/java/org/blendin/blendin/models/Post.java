@@ -8,7 +8,7 @@ import java.util.Map;
 
 @IgnoreExtraProperties
 public class Post {
-//    public String id;
+    public String id;
 //    public User user;
     public String userId;
     public String title;
@@ -48,5 +48,9 @@ public class Post {
 //        result.put("comments", comments);
 
         return result;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

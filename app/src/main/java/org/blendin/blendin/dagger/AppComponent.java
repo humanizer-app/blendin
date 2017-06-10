@@ -2,7 +2,8 @@ package org.blendin.blendin.dagger;
 
 import org.blendin.blendin.MainActivity;
 import org.blendin.blendin.auth.LoginActivity;
-import org.blendin.blendin.posts.PostsFragment;
+import org.blendin.blendin.posts.list.PostsFragment;
+import org.blendin.blendin.repository.CommentRepository;
 import org.blendin.blendin.repository.PostRepository;
 import org.blendin.blendin.repository.UserRepository;
 import org.greenrobot.eventbus.EventBus;
@@ -25,4 +26,6 @@ public interface AppComponent {
     UserRepository userRepo();
 
     EventBus bus();
+
+    CommentRepository commentRepo();
 }

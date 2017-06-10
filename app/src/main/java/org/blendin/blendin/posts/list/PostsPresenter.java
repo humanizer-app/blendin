@@ -1,7 +1,8 @@
-package org.blendin.blendin.posts;
+package org.blendin.blendin.posts.list;
 
 import android.util.Log;
 
+import org.blendin.blendin.Callback;
 import org.blendin.blendin.events.PostEvent;
 import org.blendin.blendin.models.Post;
 import org.blendin.blendin.mvp.Presenter;
@@ -25,15 +26,31 @@ public class PostsPresenter extends Presenter {
         this.userRepo = userRepo;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        fetchPosts();
+    }
+
     void fetchPosts() {
-        repo.fetchPosts();
+        repo.getAllPosts(new Callback<Post>() {
+            @Override
+            public void onSuccess(Post result) {
+                view.showPost(result);
+            }
+
+            @Override
+            public void onError(String message) {
+                view.showError(message);
+            }
+        });
     }
 
     public void createPost() {
-        Log.d(TAG, "createPost: ");
+        Log.d(TAG, "addPost: ");
         Post post = new Post(userRepo.getUser().userId,
                 "First post", "Let's make Firebase great again", System.currentTimeMillis());
-        repo.writeNewPost(post);
+        repo.addPost(post);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

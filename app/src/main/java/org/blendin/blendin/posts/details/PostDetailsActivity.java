@@ -5,11 +5,12 @@ import android.os.Bundle;
 
 import org.blendin.blendin.R;
 
-public class PostDetailsActivity extends AppCompatActivity {
+public class PostDetailsActivity extends AppCompatActivity implements PostDetailsView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_details);
+        
     }
 }

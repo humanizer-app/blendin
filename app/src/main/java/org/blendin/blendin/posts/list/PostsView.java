@@ -1,4 +1,4 @@
-package org.blendin.blendin.posts;
+package org.blendin.blendin.posts.list;
 
 import org.blendin.blendin.models.Post;
 
