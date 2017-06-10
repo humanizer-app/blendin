@@ -20,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements PostsFragment.OnListFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity {
 
     @Inject FirebaseAuth auth;
 
@@ -53,10 +53,5 @@ public class MainActivity extends AppCompatActivity implements PostsFragment.OnL
         auth.signOut();
         LoginManager.getInstance().logOut();
         startActivity(new Intent(this, LoginActivity.class));
-    }
-
-    @Override
-    public void onListFragmentInteraction(Post item) {
-        Toast.makeText(this, item.toString(), Toast.LENGTH_SHORT).show();
     }
 }
