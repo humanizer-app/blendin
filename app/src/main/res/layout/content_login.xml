@@ -19,14 +19,14 @@
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_with_fb_button"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="350dp" />
 
     <Button
         android:id="@+id/login_with_email_button"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Log in with email"
         android:layout_gravity="center_horizontal"

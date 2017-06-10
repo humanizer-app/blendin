@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import org.blendin.blendin.auth.LoginActivity;
 import org.blendin.blendin.dagger.DaggerAppComponent;
+import org.blendin.blendin.feed.FeedView;
 
 import javax.inject.Inject;
 
@@ -17,7 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FeedView {
 
     @Inject FirebaseAuth auth;
 
