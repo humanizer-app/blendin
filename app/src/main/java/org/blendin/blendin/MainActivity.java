@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity implements PostsView, PostsF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DaggerAppComponent.builder().build().inject(this);
+        ButterKnife.bind(this);
         if(savedInstanceState == null) {
-            DaggerAppComponent.builder().build().inject(this);
-            ButterKnife.bind(this);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new PostsFragment())
                     .commit();

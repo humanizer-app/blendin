@@ -20,8 +20,7 @@ public class PostsFragment extends Fragment implements PostsView {
 
     private PostsPresenter presenter;
 
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
+    private static int COLUMN_NUMBER = 1;
 
     private OnListFragmentInteractionListener mListener;
 
@@ -37,18 +36,24 @@ public class PostsFragment extends Fragment implements PostsView {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onResume() {
+        super.onResume();
+        presenter.createPost();
+        presenter.fetchPosts();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_post_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
+            if (COLUMN_NUMBER <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+                recyclerView.setLayoutManager(new GridLayoutManager(context, COLUMN_NUMBER));
             }
             recyclerView.setAdapter(new PostsAdapter(DummyPosts.ITEMS, mListener));
         }
