@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Where could I boulder? Where could I boulder? boulder boulder Where could I boulder? Where could I boulder? boulder boulder Where could I boulder? Where could I boulder? boulder boulder Where could I boulder? Where could I boulder? boulder boulder "
+                android:text="Where could I boulder? Where could I boulder?"
                 android:textColor="#3c3744"
                 android:textSize="14sp"/>
 

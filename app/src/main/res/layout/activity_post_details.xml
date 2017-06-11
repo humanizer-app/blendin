@@ -105,10 +105,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/detailsLayout"
-        android:layout_above="@+id/createCommentLayout"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        />
+        android:layout_above="@+id/createCommentLayout" />
+        <!--android:paddingLeft="8dp"-->
+        <!--android:paddingRight="8dp"-->
+        <!--/>-->
 
     <RelativeLayout
         android:id="@+id/createCommentLayout"
@@ -121,15 +121,16 @@
         android:layout_marginBottom="5dp">
 
         <EditText
+            android:id="@+id/commentEditText"
             android:layout_alignParentTop="true"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:hint="Hey! I would like to help you with..."
-            android:id="@+id/commentField"
             android:layout_alignParentLeft="true"
             />
 
         <Button
+            android:id="@+id/sendBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
