@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import org.blendin.blendin.R;
 import org.blendin.blendin.models.Post;
 import org.blendin.blendin.posts.details.PostDetailsActivity;
@@ -17,13 +19,14 @@ import org.blendin.blendin.posts.details.PostDetailsActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
 
-    private final List<Post> posts;
+    private final List<String> ids = new ArrayList<>();
+    private final List<Post> posts = new ArrayList<>();
 
-    public PostsAdapter(ArrayList<Post> posts) {
-        this.posts = posts;
+    public PostsAdapter() {
     }
 
     @Override
@@ -34,14 +37,17 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         final Post post = posts.get(position);
         holder.titleView.setText(post.userId);
-        holder.detailsView.setText(post.details);
+//        holder.detailsView.setText(post.details);
         holder.answersView.setText("6 answers");
         CharSequence ago = DateUtils.getRelativeTimeSpanString(post.timestamp,
                 System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS);
         holder.timeAgoView.setText(ago);
+//        Glide.with(holder.context).load("http://goo.gl/gEgYUd")
+//                .bitmapTransform(new CropCircleTransformation(holder.context))
+//                .into(holder.photoView);
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +66,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     public void addPost(Post post) {
         posts.add(post);
+//        ids.add(id);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

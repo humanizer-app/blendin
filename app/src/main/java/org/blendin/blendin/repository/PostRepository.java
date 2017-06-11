@@ -1,7 +1,5 @@
 package org.blendin.blendin.repository;
 
-import android.os.Handler;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -75,7 +73,9 @@ public class PostRepository {
 
         @Override
         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-            callback.onSuccess(dataSnapshot.getValue(Post.class));
+            Post post = dataSnapshot.getValue(Post.class);
+            post.id = dataSnapshot.getKey();
+            callback.onSuccess(post);
         }
 
         @Override

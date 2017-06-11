@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,7 +14,6 @@ import org.blendin.blendin.auth.LoginActivity;
 import org.blendin.blendin.dagger.DaggerAppComponent;
 import org.blendin.blendin.posts.create.NewPostActivity;
 import org.blendin.blendin.posts.list.PostsFragment;
-import org.blendin.blendin.models.Post;
 import org.blendin.blendin.profile.ProfileActivity;
 
 import javax.inject.Inject;

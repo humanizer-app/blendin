@@ -4,7 +4,10 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
 public class Comment {
-    String text;
+
+    public String text;
+
+    public long timestamp;
 
     public Comment() {
     }
