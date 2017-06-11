@@ -106,10 +106,11 @@ public class PostDetailsActivity extends AppCompatActivity implements PostDetail
 
     private void showPost(Post post) {
 
-        //ImageView tv = (ImageView) findViewById(R.id.photo_view);
-        //tv.setImageResource(R.drawable.);
+        //ImageView iv = (ImageView) findViewById(R.id.photo_view);
+        //iv.setImageResource(//);
 
-        //user name to be the text of findViewById(R.id.author_name)
+        //TextView tv1 = (TextView) findViewById(R.id.author_name);
+        //tv1.setText(//);
 
         TextView tv2 = (TextView) findViewById(R.id.details);
         tv2.setText(post.title);
