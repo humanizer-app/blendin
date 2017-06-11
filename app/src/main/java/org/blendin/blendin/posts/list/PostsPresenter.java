@@ -39,8 +39,8 @@ public class PostsPresenter extends Presenter {
 
     public void createPost() {
         Log.d(TAG, "addPost: ");
-        Post post = new Post(userRepo.getUser().userId,
-                "First post", "Let's make Firebase great again", System.currentTimeMillis());
+        Post post = new Post(userRepo.getUser(),
+                "Please help with doc translation", "I need help with translation to Estonian", System.currentTimeMillis(), "Translation");
         repo.addPost(post);
     }
 }

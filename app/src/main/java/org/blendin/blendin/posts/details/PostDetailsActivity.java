@@ -51,7 +51,7 @@ public class PostDetailsActivity extends AppCompatActivity implements PostDetail
                 public void onSuccess(Post result) {
                     if(result != null) {
                         showPost(result);
-                        fetchComments();
+                        fetchCommentsFor(result);
                     } else {
                         showError("Cannot find post with id:" + postId);
                         finish();
@@ -72,18 +72,21 @@ public class PostDetailsActivity extends AppCompatActivity implements PostDetail
         commentsAdapter = new CommentsAdapter();
         recyclerView.setAdapter(commentsAdapter);
 
-        EditText commentEdit = (EditText) findViewById(R.id.commentEditText);
+        final EditText commentEdit = (EditText) findViewById(R.id.commentEditText);
 
-        Button sendButton = (Button) findViewById(R.id.sendBtn);
+        final Button sendButton = (Button) findViewById(R.id.sendBtn);
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Comment comment = new Comment(component.userRepo().getUser(),
+                        commentEdit.getText().toString(),
+                        System.currentTimeMillis());
+                component.commentRepo().addComment(comment, postId);
             }
         });
     }
 
-    private void fetchComments() {
+    private void fetchCommentsFor(Post post) {
         component.commentRepo().getCommentsForPost(postId, new Callback<Comment>() {
             @Override
             public void onSuccess(Comment result) {
