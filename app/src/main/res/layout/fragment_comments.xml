@@ -54,7 +54,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/timestamp"
+                    android:id="@+id/time_ago"
                     android:text="30m ago"
                     android:textColor="#3c3744"
                     android:textSize="10sp"

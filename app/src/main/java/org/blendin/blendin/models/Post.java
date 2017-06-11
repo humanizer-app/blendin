@@ -4,9 +4,9 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.util.HashMap;
 
+import java.util.List;
 import java.util.Map;
 
-@IgnoreExtraProperties
 public class Post {
     public String id;
 //    public User user;
@@ -16,7 +16,7 @@ public class Post {
     public long timestamp;
 //    public String category;
 //    public Location location;
-//    List<Comment> comments = Collections.singletonList(new Comment("First comment!"));
+    public List<Comment> comments;// = Collections.singletonList(new Comment("First comment!"));
 
     public Post() {
     }
