@@ -3,6 +3,7 @@ package org.blendin.blendin.posts.list;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,9 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         holder.titleView.setText(post.userId);
         holder.detailsView.setText(post.details);
         holder.answersView.setText("6 answers");
+        CharSequence ago = DateUtils.getRelativeTimeSpanString(post.timestamp,
+                System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS);
+        holder.timeAgoView.setText(ago);
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +60,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     public void addPost(Post post) {
         posts.add(post);
-        notifyItemInserted(posts.size()-1);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -65,6 +68,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         public TextView titleView;
         public TextView detailsView;
         public TextView answersView;
+        public TextView timeAgoView;
 
         public final Context context;
 
@@ -74,6 +78,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             titleView = (TextView) view.findViewById(R.id.title);
             detailsView = (TextView) view.findViewById(R.id.details);
             answersView = (TextView) view.findViewById(R.id.answer_count);
+            timeAgoView = (TextView) view.findViewById(R.id.time_ago);
             context = view.getContext();
         }
     }

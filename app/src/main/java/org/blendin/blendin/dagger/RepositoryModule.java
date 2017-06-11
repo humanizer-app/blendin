@@ -15,15 +15,16 @@ import dagger.Provides;
 
 @Module
 class RepositoryModule {
+
     private static FirebaseDatabase database;
+
     static {
         database = FirebaseDatabase.getInstance();
         database.setPersistenceEnabled(true);
     }
+
     @Provides @Singleton
     DatabaseReference provideDatabaseReference() {
-//        FirebaseDatabase databasetabase = FirebaseDatabase.getInstance();
-//        database.setPersistenceEnabled(true);
         return database.getReference();
     }
 

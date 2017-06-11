@@ -3,6 +3,8 @@ package org.blendin.blendin.posts.list;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -37,6 +39,9 @@ public class PostsFragment extends Fragment implements PostsView {
         appComponent.inject(this);
         presenter = new PostsPresenter(this, appComponent.postsRepo(), appComponent.userRepo(), appComponent.bus());
         presenter.fetchPosts();
+
+        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        actionBar.setTitle("Choose categories");
     }
 
     @Override
@@ -67,6 +72,7 @@ public class PostsFragment extends Fragment implements PostsView {
     @Override
     public void showPost(Post post) {
         adapter.addPost(post);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
