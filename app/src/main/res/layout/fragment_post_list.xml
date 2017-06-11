@@ -11,3 +11,4 @@
     app:layoutManager="LinearLayoutManager"
     tools:context="org.blendin.blendin.posts.list.PostsFragment"
     tools:listitem="@layout/fragment_post" />
+
