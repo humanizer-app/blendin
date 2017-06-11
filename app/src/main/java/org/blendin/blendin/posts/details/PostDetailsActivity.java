@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.blendin.blendin.Callback;
@@ -22,6 +24,9 @@ import org.blendin.blendin.posts.list.PostsAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 public class PostDetailsActivity extends AppCompatActivity implements PostDetailsView {
 
@@ -97,7 +102,23 @@ public class PostDetailsActivity extends AppCompatActivity implements PostDetail
     }
 
     private void showPost(Post post) {
-        // Populate Post fields to all views
-//        Toast.makeText(getApplicationContext(), post.details, Toast.LENGTH_SHORT).show();
+
+        //ImageView tv = (ImageView) findViewById(R.id.photo_view);
+        //tv.setImageResource(R.drawable.);
+
+        //user name to be the text of findViewById(R.id.author_name)
+
+        TextView tv2 = (TextView) findViewById(R.id.details);
+        tv2.setText(post.title);
+        TextView tv3 = (TextView) findViewById(R.id.postContent);
+        tv3.setText(post.details);
+        long timestamp = post.timestamp;
+        long current = Calendar.getInstance().getTimeInMillis();
+        long diff = current-timestamp;
+        TextView tv4 = (TextView) findViewById(R.id.time_ago);
+        int i = (int) ((diff / (1000*60)) % 60);
+        tv4.setText(Integer.toString(i) + " minutes ago");
+
+    //Toast.makeText(getApplicationContext(), post.details, Toast.LENGTH_SHORT).show();
     }
 }
