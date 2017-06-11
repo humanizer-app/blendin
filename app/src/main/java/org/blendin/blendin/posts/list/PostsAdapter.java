@@ -10,12 +10,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import org.blendin.blendin.R;
 import org.blendin.blendin.models.Post;
 import org.blendin.blendin.posts.details.PostDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
 
@@ -35,15 +39,15 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final Post post = posts.get(position);
-        holder.titleView.setText(post.userId);
+        holder.titleView.setText(post.author.name);
 //        holder.detailsView.setText(post.details);
         holder.answersView.setText("6 answers");
         CharSequence ago = DateUtils.getRelativeTimeSpanString(post.timestamp,
                 System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS);
         holder.timeAgoView.setText(ago);
-//        Glide.with(holder.context).load("http://goo.gl/gEgYUd")
-//                .bitmapTransform(new CropCircleTransformation(holder.context))
-//                .into(holder.photoView);
+        Glide.with(holder.context).load(post.author.photoUrl)
+                .bitmapTransform(new CropCircleTransformation(holder.context))
+                .into(holder.photoView);
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +82,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         public ViewHolder(View view) {
             super(view);
             this.view = view;
+            photoView = (ImageView) view.findViewById(R.id.photo_view);
             titleView = (TextView) view.findViewById(R.id.author_name);
             detailsView = (TextView) view.findViewById(R.id.details);
             answersView = (TextView) view.findViewById(R.id.answer_count);
