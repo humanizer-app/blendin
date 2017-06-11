@@ -5,4 +5,20 @@
     <string name="action_settings">Settings</string>
     <string name="action_add">Add post</string>
 
+    <string-array
+        name="options_array">
+        <item>Offering help</item>
+        <item>Asking for help</item>
+    </string-array>
+
+    <string-array
+        name="categories_array">
+        <item>Finance</item>
+        <item>Food</item>
+        <item>Other</item>
+        <item>Shopping</item>
+        <item>Transport</item>
+        <item>Travel</item>
+    </string-array>
+
 </resources>
