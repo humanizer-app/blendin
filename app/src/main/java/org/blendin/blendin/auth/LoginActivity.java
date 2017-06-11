@@ -35,9 +35,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.content_login);
 
-        DaggerAppComponent.builder().build().inject(this);
+        DaggerAppComponent.create().inject(this);
 
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_with_fb_button);
         loginButton.setReadPermissions("email", "public_profile");
@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = auth.getCurrentUser();
-        if(currentUser!=null) {
+        if(currentUser != null) {
             showFeedScreen();
         }
     }

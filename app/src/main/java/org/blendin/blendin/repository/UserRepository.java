@@ -15,6 +15,7 @@ public class UserRepository {
 
     public User getUser() {
         FirebaseUser user = auth.getCurrentUser();
+        if(user == null) return null;
         return new User(user.getUid(), user.getDisplayName(), user.getPhotoUrl().toString());
     }
 }

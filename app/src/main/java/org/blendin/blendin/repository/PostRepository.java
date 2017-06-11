@@ -54,7 +54,11 @@ public class PostRepository {
     }
 
     public void getAllPosts(Callback<Post> callback) {
+        if(auth.getCurrentUser() == null) {
+            return;
+        }
         String userId = auth.getCurrentUser().getUid();
+
         final DatabaseReference posts = database.child("/user-posts/" + userId);
 
         if(postListener != null) {

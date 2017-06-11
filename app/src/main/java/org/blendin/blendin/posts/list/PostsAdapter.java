@@ -40,7 +40,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final Post post = posts.get(position);
         holder.titleView.setText(post.author.name);
-//        holder.detailsView.setText(post.details);
+        holder.detailsView.setText(post.title);
         holder.answersView.setText("6 answers");
         CharSequence ago = DateUtils.getRelativeTimeSpanString(post.timestamp,
                 System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS);

@@ -15,6 +15,7 @@ import org.blendin.blendin.dagger.DaggerAppComponent;
 import org.blendin.blendin.posts.create.NewPostActivity;
 import org.blendin.blendin.posts.list.PostsFragment;
 import org.blendin.blendin.profile.ProfileActivity;
+import org.blendin.blendin.repository.UserRepository;
 
 import javax.inject.Inject;
 
@@ -25,6 +26,8 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
     @Inject FirebaseAuth auth;
+    @Inject
+    UserRepository userRepository;
 
     @BindView(R.id.feed_view)
     RecyclerView feedView;
@@ -33,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DaggerAppComponent.builder().build().inject(this);
+        DaggerAppComponent.create().inject(this);
         ButterKnife.bind(this);
-        if(savedInstanceState == null) {
+        if(savedInstanceState == null && userRepository.getUser() != null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new PostsFragment())
                     .commit();
@@ -45,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        if(auth.getCurrentUser() == null) {
-            startActivity(new Intent(this, LoginActivity.class));
-        }
+//        if(auth.getCurrentUser() == null) {
+//            startActivity(new Intent(this, LoginActivity.class));
+//        }
     }
 
     @Override
