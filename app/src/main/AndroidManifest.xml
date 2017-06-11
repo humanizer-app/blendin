@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -28,6 +28,12 @@
             android:name=".auth.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
+
+        </activity>
+        <activity
+            android:name=".posts.details.PostDetailsActivity"
+            android:label="Post Details"
+            android:theme="@style/AppTheme" >
 
         </activity>
         <activity
@@ -49,9 +55,12 @@
         <activity
             android:name=".categories.CategoriesActivity"
             android:label="Categories" />
-        <activity android:name=".posts.details.PostDetailsActivity" />
-        <activity android:name=".posts.create.NewPostActivity" />
-        <activity android:name=".profile.ProfileActivity"/>
+        <activity
+            android:name=".posts.create.NewPostActivity"
+            android:label="New Post"/>
+        <activity
+            android:name=".profile.ProfileActivity"
+            android:label="Profile"/>
     </application>
 
 </manifest>

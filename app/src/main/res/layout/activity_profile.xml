@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="org.blendin.blendin.profile.ProfileActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:theme="@style/AppTheme.NoActionBar">
 
     <ImageView
         android:layout_width="150dp"
@@ -14,7 +15,7 @@
         android:src="@drawable/oval"
         android:background="@drawable/border"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="35dp"/>
+        android:layout_marginTop="60dp"/>
 
     <TextView
         android:layout_width="wrap_content"

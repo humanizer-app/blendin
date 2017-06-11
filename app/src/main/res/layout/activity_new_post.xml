@@ -8,9 +8,9 @@
     android:layout_marginRight="12dp"
     android:layout_gravity="fill"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="org.blendin.blendin.posts.create.NewPostActivity">
+    tools:context="org.blendin.blendin.posts.create.NewPostActivity"
+    android:padding="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:entries="@array/options_array"
             android:entryValues="@array/options_array"
             android:padding="10dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="25dp"/>
 
         <Spinner
             android:id="@+id/post_category"
@@ -33,14 +33,14 @@
             android:layout_height="wrap_content"
             android:entries="@array/categories_array"
             android:entryValues="@array/categories_array"
-            android:padding="7dp"/>
+            android:padding="15dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="30dp">
 
             <ImageView
                 android:layout_width="50dp"
@@ -77,7 +77,7 @@
                     android:id="@+id/details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Who can help me with translation?"
+                    android:hint="What is your problem?"
                     android:textColor="#3c3744"
                     android:textSize="18sp"/>
 
