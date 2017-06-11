@@ -31,19 +31,19 @@ public class CommentsFragment extends Fragment{
         });
     }
 
-    private void showComment() {
-        // add comment to the adapter and notifyItemAdded();
-    }
-
-    private void showError(String message) {
-        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_comments, container, false);
 
         return view;
+    }
+
+    private void showComment() {
+        // add comment to the adapter and notifyItemAdded();
+    }
+
+    private void showError(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

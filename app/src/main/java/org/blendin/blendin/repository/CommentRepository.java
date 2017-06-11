@@ -23,7 +23,8 @@ public class CommentRepository {
         this.auth = auth;
     }
 
-    public void addComment(Post post) {
+    public void addComment(Comment comment, String postId) {
+        database.child("/comments/" + postId).push().setValue(comment);
     }
 
     public void getCommentsForPost(String postId, final Callback<Comment> callback) {

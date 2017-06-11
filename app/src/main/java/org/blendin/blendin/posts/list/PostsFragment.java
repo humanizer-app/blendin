@@ -9,9 +9,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -63,7 +60,7 @@ public class PostsFragment extends Fragment implements PostsView {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, COLUMN_NUMBER));
             }
-            adapter = new PostsAdapter(new ArrayList<Post>());
+            adapter = new PostsAdapter();
             recyclerView.setAdapter(adapter);
         }
         return view;
