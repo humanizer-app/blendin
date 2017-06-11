@@ -29,7 +29,7 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:id="@+id/profile_pic"
+                android:id="@+id/photo_view"
                 android:src="@drawable/oval"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
@@ -48,7 +48,7 @@
                     android:gravity="top">
 
                     <TextView
-                        android:id="@+id/title"
+                        android:id="@+id/author_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Johanna Snow"

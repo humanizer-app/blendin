@@ -10,16 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import org.blendin.blendin.R;
 import org.blendin.blendin.models.Post;
 import org.blendin.blendin.posts.details.PostDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
 
@@ -82,7 +78,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         public ViewHolder(View view) {
             super(view);
             this.view = view;
-            titleView = (TextView) view.findViewById(R.id.title);
+            titleView = (TextView) view.findViewById(R.id.author_name);
             detailsView = (TextView) view.findViewById(R.id.details);
             answersView = (TextView) view.findViewById(R.id.answer_count);
             timeAgoView = (TextView) view.findViewById(R.id.time_ago);

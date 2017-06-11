@@ -1,5 +1,6 @@
 package org.blendin.blendin.posts.details;
 
+import android.support.annotation.BinderThread;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -9,6 +10,9 @@ import org.blendin.blendin.R;
 import org.blendin.blendin.dagger.DaggerAppComponent;
 import org.blendin.blendin.models.Post;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PostDetailsActivity extends AppCompatActivity implements PostDetailsView {
 
     private String postId;
@@ -17,6 +21,7 @@ public class PostDetailsActivity extends AppCompatActivity implements PostDetail
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_details);
+        ButterKnife.bind(this);
 
         Bundle extras = getIntent().getExtras();
         if(extras != null) {

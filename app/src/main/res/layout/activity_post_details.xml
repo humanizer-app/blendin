@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    >
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/detailsLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginBottom="1dp"
         android:layout_marginRight="12dp"
@@ -39,7 +36,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:id="@+id/profile_pic"
+                    android:id="@+id/photo_view"
                     android:src="@drawable/oval"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"
@@ -58,7 +55,7 @@
                         android:gravity="top">
 
                         <TextView
-                            android:id="@+id/title"
+                            android:id="@+id/author_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Johanna Snow"
@@ -66,9 +63,9 @@
                             android:textSize="14sp"/>
 
                         <TextView
+                            android:id="@+id/time_ago"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/time_ago"
                             android:text="30m ago"
                             android:textColor="#3c3744"
                             android:textSize="10sp"
@@ -103,11 +100,18 @@
 
     </LinearLayout>
 
-    <!--
-        HERE BE COMMENTS
-    -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/commentsListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/detailsLayout"
+        android:layout_above="@+id/createCommentLayout"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        />
 
     <RelativeLayout
+        android:id="@+id/createCommentLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -120,7 +124,7 @@
             android:layout_alignParentTop="true"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
-            android:text="Comment..."
+            android:hint="Hey! I would like to help you with..."
             android:id="@+id/commentField"
             android:layout_alignParentLeft="true"
             />
