@@ -92,16 +92,21 @@
             android:hint="Describe your problem in details i.e. Who can help me with translation?"
             android:textColor="#3c3744"
             android:textSize="14sp"
+            android:gravity="top"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="7dp"/>
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/sendBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:src="@android:drawable/ic_menu_send"/>
 
-    <ImageButton
-        android:id="@+id/sendBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_menu_send"/>
+    </LinearLayout>
 
 </LinearLayout>
